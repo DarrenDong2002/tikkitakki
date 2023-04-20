@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ttt</string>
+    <string name="content_cell">Cell</string>
+    <string name="label_reset">Reset</string>
+
+    <string name="message_stars_win">You Won!</string>
+    <string name="message_circles_win">You Lost!</string>
+    <string name="message_draw">It\'s a Draw :c</string>
+
+
+    <string name="log_in">Log in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="create_an_account">Create an Account</string>
+
+    <string name="text_timer">Password</string>
+    <string name="don_t_have_an_account_yet_sign_up_now">Sign Up Here</string>
+
+</resources>
