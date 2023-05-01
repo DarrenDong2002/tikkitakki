@@ -15,8 +15,10 @@ import com.example.ttt.databinding.ActivityMainBinding
 import com.example.ttt.models.Board
 import com.example.ttt.models.BoardState
 import com.example.ttt.models.Cell
-
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.example.ttt.UpdateStatusActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private var timeCountDown: CountDownTimer? = null
     private var timeProgress = 0
     private var isStart = true
-
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,6 +90,9 @@ class MainActivity : AppCompatActivity() {
         BoardState.STARS_WIN -> {
             binding.textGameStatus.visibility = View.VISIBLE
             binding.textGameStatus.setText(R.string.message_stars_win)
+            val uSA = UpdateStatusActivity()
+            firebaseAuth.uid?.let { uSA.updateScore(it) }
+
         }
         BoardState.CIRCLES_WIN -> {
             binding.textGameStatus.visibility = View.VISIBLE
